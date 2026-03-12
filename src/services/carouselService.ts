@@ -3,6 +3,7 @@ import type { BannerConfig } from '../types'
 class CarouselService {
   async getConfig(): Promise<any> {
     const {
+      siteConfig,
       assetsState,
       carouselSlides,
       banner,
@@ -11,7 +12,8 @@ class CarouselService {
       buttonLinks,
       recommendedTools,
       floatAdButtons,
-      routeLinksImages
+      routeLinksImages,
+      titles
     } = await import('../config/siteConfig')
 
     // Always return static data from config
@@ -22,6 +24,7 @@ class CarouselService {
       backgroundImage: assetsState.backgroundImage,
       videoThumbnails,
       programThumbnails,
+      titles,
       buttonLinks: buttonLinks.map((b: any) => ({
         text: b.label,
         href: b.href,
@@ -56,6 +59,10 @@ class CarouselService {
   async getBanner(): Promise<string | BannerConfig> {
     const config = await this.getConfig()
     return config.banner
+  }
+
+  async fetchDynamicRoutes(): Promise<string[]> {
+      return []; // Static mode doesn't fetch dynamic routes by default
   }
 }
 

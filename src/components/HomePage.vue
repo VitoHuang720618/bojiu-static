@@ -504,8 +504,8 @@ const scrollToTop = () => {
 }
 
 .recommend-routes-title .crown-icon {
-  width: 42px;
-  height: 39px;
+  width: 48px;
+  height: 33px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -513,14 +513,18 @@ const scrollToTop = () => {
 .recommend-routes-title .title-text {
   display: inline-flex;
   align-items: center;
-  width: 203px;
-  height: 32px;
+  width: auto;
+  height: auto;
   /* background: #fffdda;  暫時註釋，因為文字背景通常指的是 background-clip 或者只是單純色塊，如果 user 是要色塊則開啟 */
   font-size: 32px;
   font-family: "Microsoft YaHei UI", "Microsoft YaHei UI-Bold", sans-serif;
   font-weight: 700;
   text-align: left;
-  color: #ffd08c;
+  background: #ffffff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   letter-spacing: 6.39px;
   white-space: nowrap;
 }
@@ -628,8 +632,8 @@ const scrollToTop = () => {
   width: 100%;
   /* height: 410px; Removed fixed height for tighter fit */
   height: auto;
-  background: rgba(41, 13, 16, 0.40);
-  /* 經用戶調整：顏色調淡 (0.8 -> 0.4) */
+  opacity: 0.8;
+  background: rgba(20, 10, 104, 0.80);
   border-radius: 20px 20px 0px 0px;
   box-sizing: border-box;
   padding: 45px 27px 44px 63px;
@@ -972,11 +976,12 @@ const scrollToTop = () => {
     font-weight: 700 !important;
     text-align: left !important;
 
-    /* 將背景色與文字色結合成漸層文字，這通常是設計稿的本意 */
-    background: linear-gradient(180deg, #fffdda 0%, #ffd08c 100%) !important;
+    /* 依照 User 要求改為純白 */
+    background: #ffffff !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    color: #ffffff !important;
 
     letter-spacing: 4.17px !important;
     display: flex !important;
@@ -1007,7 +1012,7 @@ const scrollToTop = () => {
 .recommend-footer .block-title {
   margin-right: 0;
   margin-bottom: 0;
-  background-color: #920200;
+  background-color: #3625c3;
   padding: 0;
   border-radius: 0 0 0 20px;
   display: flex;
@@ -1051,7 +1056,7 @@ const scrollToTop = () => {
     border-radius: 0;
     justify-content: flex-start;
     padding: 0;
-    background: #920200;
+    background: #3625c3;
   }
 
   .recommend-footer .block-title img {
@@ -1090,8 +1095,8 @@ const scrollToTop = () => {
     flex: 0 0 48px !important;
     justify-content: flex-start !important;
     padding: 0 15px !important;
-    background: #920200 !important;
-    /* 平板下標題欄維持深紅 */
+    background: #3625c3 !important;
+    /* 平板下標題欄維持深藍 */
     border-radius: 0 !important;
   }
 
@@ -1175,7 +1180,7 @@ const scrollToTop = () => {
 }
 
 .recommend-footer .tools .item:hover {
-  background-color: #a81c1c;
+  background-color: #3625c3;
 }
 
 .recommend-footer .tools .item :deep(.img-button) {
@@ -1686,7 +1691,7 @@ const scrollToTop = () => {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 10px 0 !important;
-    background: #3e080f !important;
+    background: #060417, linear-gradient(0deg, #000000 0%, #232323 100%), #000000 !important;
   }
 }
 
@@ -1851,14 +1856,12 @@ const scrollToTop = () => {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: transparent;
-  /* Reference image has a red pattern background, but user asked for "only circle and arrow". 
-     However, usually valid buttons need a background for contrast. 
-     The reference image (red pattern) suggests it sits on a red background or HAS a red background.
-     Let's start with transparent background but a border as requested.
-  */
-  border: 2px solid #dfb082;
-  /* Gold-ish color */
+  background-color: transparent;
+  background-image: url('/assets/images/scroll-to-top.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
   cursor: pointer;
   z-index: 999;
   transition: all 0.3s ease;
@@ -1868,20 +1871,12 @@ const scrollToTop = () => {
   padding: 0;
 }
 
-
-
 .scroll-to-top:hover {
-  background-color: rgba(223, 176, 130, 0.1);
+  opacity: 0.8;
 }
 
 .scroll-to-top .arrow-up {
-  width: 12px;
-  height: 12px;
-  border-top: 3px solid #dfb082;
-  border-left: 3px solid #dfb082;
-  transform: rotate(45deg);
-  margin-top: 4px;
-  /* Visual adjustment to center the arrow */
+  display: none;
 }
 
 @media (max-width: 1279px) {
