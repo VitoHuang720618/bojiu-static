@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { siteConfig } from '../config/siteConfig';
+// Footer 使用靜態內容，無需引入 siteConfig
 </script>
 
 <template>
