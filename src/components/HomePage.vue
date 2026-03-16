@@ -1013,7 +1013,7 @@ const scrollToTop = () => {
 .recommend-footer .block-title {
   margin-right: 0;
   margin-bottom: 0;
-  background-color: #3625c3;
+  background-color: #200cc5;
   padding: 0;
   border-radius: 0 0 0 20px;
   display: flex;
@@ -1057,7 +1057,7 @@ const scrollToTop = () => {
     border-radius: 0;
     justify-content: flex-start;
     padding: 0;
-    background: #3625c3;
+    background: #200cc5;
   }
 
   .recommend-footer .block-title img {
@@ -1182,7 +1182,7 @@ const scrollToTop = () => {
 }
 
 .recommend-footer .tools .item:hover {
-  background-color: #3625c3;
+  background-color: #200cc5;
 }
 
 .recommend-footer .tools .item :deep(.img-button) {
