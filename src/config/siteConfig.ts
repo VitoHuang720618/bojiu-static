@@ -54,7 +54,7 @@ export const siteConfig = reactive<SiteConfig>({
 })
 
 // Function to update local assets for non-API mode (No-op in static mode)
-export const updateLocalAssets = () => {}
+export const updateLocalAssets = (config: any) => {}
 
 // Function to load runtime config (No-op in static mode)
 export const loadRuntimeConfig = async () => { return false }
