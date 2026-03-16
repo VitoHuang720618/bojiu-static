@@ -1096,7 +1096,7 @@ const scrollToTop = () => {
     flex: 0 0 48px !important;
     justify-content: flex-start !important;
     padding: 0 15px !important;
-    background: #3625c3 !important;
+    background: #200cc5 !important;
     /* 平板下標題欄維持深藍 */
     border-radius: 0 !important;
   }
@@ -1182,7 +1182,7 @@ const scrollToTop = () => {
 }
 
 .recommend-footer .tools .item:hover {
-  background-color: #200cc5;
+  background-color: #3625c3;
 }
 
 .recommend-footer .tools .item :deep(.img-button) {
