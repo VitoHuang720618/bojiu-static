@@ -64,10 +64,11 @@ export interface SiteConfig {
   description: string
   baseUrl: string
   useApi: boolean
+  routesApiUrl?: string
   navigation: NavigationItem[]
   floatAdButtons: FloatAdButton[]
-  footer: FooterConfig
-  theme: ThemeConfig
+  footer?: FooterConfig
+  theme?: ThemeConfig
 }
 
 export interface FloatAdButton {
