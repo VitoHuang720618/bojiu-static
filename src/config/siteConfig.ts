@@ -14,7 +14,8 @@ export const siteConfig = reactive<SiteConfig>({
   title: '博九娱乐网',
   description: 'B9 Entertainment Website',
   baseUrl: getBaseUrl(),
-  useApi: false, // STATIC MODE (Updated: 2026-03-12)
+  useApi: false, // STATIC MODE (Updated: 2026-03-16)
+  routesApiUrl: '',
   floatAdButtons: [],
   navigation: [
         {
@@ -49,34 +50,11 @@ export const siteConfig = reactive<SiteConfig>({
             "default": "/uploads/buttonLinks-3-defaultImage-1773310024371.png",
             "hover": "/uploads/buttonLinks-3-hoverImage-1773310036669.png"
         }
-    ],
-  footer: {
-    links: [],
-    socialMedia: [],
-    copyright: ''
-  },
-  theme: {
-    colors: {
-      primary: '#000000',
-      secondary: '#666666',
-      background: '#ffffff',
-      text: '#333333',
-      accent: '#ff0000'
-    },
-    fonts: {
-      heading: 'Arial',
-      body: 'Arial'
-    },
-    breakpoints: {
-      mobile: 768,
-      tablet: 1024,
-      desktop: 1440
-    }
-  }
+    ]
 })
 
 // Function to update local assets for non-API mode (No-op in static mode)
-export const updateLocalAssets = () => {}
+export const updateLocalAssets = (config: any) => {}
 
 // Function to load runtime config (No-op in static mode)
 export const loadRuntimeConfig = async () => { return false }

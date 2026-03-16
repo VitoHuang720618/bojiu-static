@@ -1,49 +1,46 @@
 <script setup lang="ts">
-// Footer 使用靜態內容，無需引入 siteConfig
 </script>
 
 <template>
-    <footer id="footer">
-        <span>Copyright © 博九娱乐网 Reserved</span>
-    </footer>
+  <footer id="footer">
+    <span>Copyright © 博九娱乐网 Reserved</span>
+  </footer>
 </template>
 
 <style scoped>
 #footer {
-    align-items: center;
-    background: linear-gradient(0deg, #000000 0%, #232323 100%), #060417;
-    display: flex;
-    height: 44px;
-    justify-content: center;
-    width: 100%;
-    color: #fff;
-    font-size: 12px;
+  align-items: center;
+  background: #060417;
+  display: flex;
+  height: 44px;
+  justify-content: center;
+  width: 100%;
+  color: #fff;
+  font-size: 12px;
 }
 
 @media (max-width: 1279px) {
-    #footer {
-        height: 44px;
-        background:
-            #060417, linear-gradient(0deg, #000000 0%, #232323 100%), #000000 !important;
-        border-top: 2px solid #dfb082 !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  #footer {
+    height: 44px;
+    background: #060417 !important;
+    border-top: 2px solid #dfb082 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    #footer span {
-        width: auto;
-        height: auto;
-        font-size: 12px;
-        font-family:
-            'Microsoft YaHei UI', 'Microsoft YaHei UI-Light', sans-serif;
-        font-weight: 300;
-        text-align: left;
-        color: #fefefe;
-        letter-spacing: 0.69px;
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-    }
+  #footer span {
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    font-family: "Microsoft YaHei UI", "Microsoft YaHei UI-Light", sans-serif;
+    font-weight: 300;
+    text-align: left;
+    color: #fefefe;
+    letter-spacing: 0.69px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
 }
 </style>
