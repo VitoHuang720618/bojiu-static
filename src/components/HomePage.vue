@@ -368,16 +368,16 @@ const scrollToTop = () => {
 
 @media (max-width: 768px) {
   #home-main {
-    padding: 2.5rem 1.25rem;
+    padding: 2.5rem 15px !important;
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 480px) {
   #home-main {
     border-top: 2px solid #dfb082;
     border-bottom: none !important;
-    padding: 1.5rem 0.625rem;
-    padding-bottom: 3rem;
+    padding: 1.5rem 15px !important;
+    padding-bottom: 3rem !important;
   }
 }
 
@@ -1759,13 +1759,13 @@ const scrollToTop = () => {
     gap: 0 !important;
     /* 增加間距讓按鈕更分散 */
     width: 100% !important;
-    padding: 0 120px !important;
+    padding: 0 150px !important;
     box-sizing: border-box !important;
   }
 
   #float-ad .links .item {
-    width: 151px !important;
-    height: 58px !important;
+    width: 140px !important;
+    height: 60px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1774,9 +1774,9 @@ const scrollToTop = () => {
   }
 
   #float-ad .links .item :deep(img) {
-    width: 151px !important;
-    height: 58px !important;
-    max-width: 151px !important;
+    width: 140px !important;
+    height: 60px !important;
+    max-width: 140px !important;
     object-fit: fill !important;
     /* 使用 fill 確保圖片完全填滿容器 */
   }
