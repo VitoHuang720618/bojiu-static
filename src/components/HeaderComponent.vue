@@ -1,72 +1,56 @@
 <script setup lang="ts">
+import { onMounted, onUnmounted, watch, ref } from 'vue'
 import ImageComponent from './ImageComponent.vue'
 import { useSiteData } from '../composables/useSiteData'
 
-// Use logo from composable
-const { effectiveLogo } = useSiteData()
+// Use logo and custom CSS from composable
+const { effectiveLogo, effectiveHeaderCss, effectiveHeaderBackgroundRgba } = useSiteData()
+
+// Handle dynamic CSS injection
+const dynamicStyleTag = ref<HTMLStyleElement | null>(null)
+
+const updateDynamicStyle = (css: string) => {
+  if (!css) {
+    if (dynamicStyleTag.value) {
+      dynamicStyleTag.value.innerHTML = ''
+    }
+    return
+  }
+
+  if (!dynamicStyleTag.value) {
+    dynamicStyleTag.value = document.createElement('style')
+    dynamicStyleTag.value.setAttribute('data-dynamic-header', '')
+    document.head.appendChild(dynamicStyleTag.value)
+  }
+  dynamicStyleTag.value.innerHTML = css
+}
+
+onMounted(() => {
+  if (effectiveHeaderCss.value) {
+    updateDynamicStyle(effectiveHeaderCss.value)
+  }
+})
+
+watch(() => effectiveHeaderCss.value, (newCss) => {
+  updateDynamicStyle(newCss || '')
+})
+
+onUnmounted(() => {
+  if (dynamicStyleTag.value) {
+    document.head.removeChild(dynamicStyleTag.value)
+    dynamicStyleTag.value = null
+  }
+})
 </script>
 
 <template>
-  <header id="header">
+  <header id="header" :style="{ background: effectiveHeaderBackgroundRgba }">
     <div class="header__logo">
-      <ImageComponent :src="effectiveLogo" alt="博九娱乐网" :lazy="false" />
+      <ImageComponent :src="effectiveLogo" alt="博九娛樂網" :lazy="false" />
     </div>
   </header>
 </template>
 
 <style scoped>
-#header {
-  align-items: flex-start;
-  background: linear-gradient(0deg, #3041b9 0%, #081fb3 100%), #000000;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.30);
-  display: flex;
-  height: 75px;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  z-index: 98;
-}
-
-@media (max-width: 1024px) {
-  #header {
-    height: 40px;
-  }
-}
-
-.header__logo {
-  width: 304px;
-  height: 84px;
-}
-
-@media (max-width: 1024px) {
-  .header__logo {
-    height: 56px;
-  }
-}
-
-@media (max-width: 820px) {
-  #header {
-    height: 40px;
-    /* 確保 820px 時高度正確 */
-  }
-
-  .header__logo {
-    width: 180px;
-    height: 50px;
-  }
-}
-
-@media (max-width: 430px) {
-  .header__logo {
-    width: 180px;
-    height: 50px;
-  }
-}
-
-.header__logo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+@import "/src/assets/styles/components/HeaderComponent.css";
 </style>
